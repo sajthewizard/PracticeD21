@@ -13,12 +13,12 @@ function App() {
   }
   console.log(blogs)
  const[total,setTotal]=useState(0)
-const  addedToread=(reading_time)=>{
+const  addedToread=(reading_time,id)=>{
   setTotal (total+reading_time);
- 
-
+  const newblogs=blogs.filter(blog=>blog.id!==id )
+  setBlogs(newblogs)
 }
-console.log(total)
+
   return (
     <>
     <div className='max-w-7xl mx-auto'>

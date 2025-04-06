@@ -1,7 +1,7 @@
 import { CiBookmark } from "react-icons/ci";
 
 const Blog = ({blog,clickHandler,addedToread}) => {
-   const{author,author_img,cover,hashtags,posted_date,reading_time,title}=blog;
+   const{id,author,author_img,cover,hashtags,posted_date,reading_time,title}=blog;
     return (
         <div className="mb-4 border-x-4 p-2 "> 
             <img className="mb-4 w-full" src={cover} alt="" />
@@ -43,7 +43,7 @@ const Blog = ({blog,clickHandler,addedToread}) => {
                 </span>)
             }
             </p>
-            <button onClick={()=>addedToread(reading_time)} className="underline mx-6 text-blue-600">
+            <button onClick={()=>addedToread(reading_time,id)} className="underline mx-6 text-blue-600">
                 Mark as read
             </button>
             
