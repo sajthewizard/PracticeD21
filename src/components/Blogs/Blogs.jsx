@@ -3,7 +3,7 @@ import  { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Blog from '../Blog/Blog';
 
-const Blogs = props => {
+const Blogs = ({clickHandler,addedToread}) => {
     const [blogs,setBlogs]=useState([])
     useEffect(()=>{
         fetch('blogs.json')
@@ -14,7 +14,7 @@ const Blogs = props => {
     return (
         <div className='w-2/3 m-4'>
             {
-                blogs.map(blog=><Blog blog={blog}></Blog>)
+                blogs.map(blog=><Blog blog={blog} clickHandler={clickHandler} addedToread={addedToread}></Blog>)
             }
             
         </div>
@@ -22,6 +22,8 @@ const Blogs = props => {
 };
 
 Blogs.propTypes = {
+    clickHandler:PropTypes.func,
+    addedToread:PropTypes.func
     
 };
 

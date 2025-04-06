@@ -1,7 +1,7 @@
+import { CiBookmark } from "react-icons/ci";
 
-
-const Blog = ({blog}) => {
-   const{author,author_img,cover,hashtags,posted_date,reading_time,title}=blog
+const Blog = ({blog,clickHandler,addedToread}) => {
+   const{author,author_img,cover,hashtags,posted_date,reading_time,title}=blog;
     return (
         <div className="mb-4 border-x-4 p-2 "> 
             <img className="mb-4 w-full" src={cover} alt="" />
@@ -30,18 +30,20 @@ const Blog = ({blog}) => {
                 </div>
                 <div>
                     <span>{reading_time} Min Read</span>
+                    <button className="ml-2 mt-1" onClick={()=>clickHandler(blog)}><CiBookmark />
+                    </button>
 
                 </div>
             </div>
             <h3 className="mx-4 text-4xl my-2">{title}</h3>
             <p className="mx-6 my-1">
             {
-                hashtags.map(hash=><span>
+                hashtags.map(hash=><span className="m-1">
                    #{hash}
                 </span>)
             }
             </p>
-            <button className="underline mx-6">
+            <button onClick={()=>addedToread(reading_time)} className="underline mx-6 text-blue-600">
                 Mark as read
             </button>
             
